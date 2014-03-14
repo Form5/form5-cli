@@ -14,6 +14,7 @@ var cli = {
   prefix: '[' + clc.cyan('form5') + ']',
   log: function(message){ console.log( cli.prefix, message ); },
   notice: function(message){ console.log( cli.prefix, clc.blue(message) ); },
+  success: function(message){ console.log( cli.prefix, clc.green(message) ); },
   warn: function(message){ console.log( cli.prefix, clc.yellow(message) ); },
   error: function(message){ console.log( cli.prefix, clc.red.bold(message) ); }
 };
