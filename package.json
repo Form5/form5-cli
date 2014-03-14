@@ -5,7 +5,10 @@
   "main": "form5",
   "dependencies": {
     "stdio": "~0.1.5",
-    "cli-color": "~0.2.3"
+    "cli-color": "~0.2.3",
+    "readline-sync": "~0.2.2",
+    "async": "~0.2.10",
+    "underscore": "~1.6.0"
   },
   "devDependencies": {},
   "scripts": {
