@@ -1,3 +1,3 @@
 module.exports = function(cli) {
-  console.log('This is the init task');
+  cli.notice('This is the init task');
 }

@@ -1,26 +1,42 @@
 #!/usr/bin/env node
+'use strict';
+
 var stdio = require('stdio'),
     fs = require('fs'),
     clc = require('cli-color');
 
-var opt = stdio.getopt({
-  'foo': { key: 'f', description: 'The foo initializer'}
-});
+var args = process.argv.slice(2);
 
 var cli = {
-  opt: opt,
-  notice: function(message) { console.log(clc.blue(message)); },
+  getopt: stdio.getopt,
+  notice: function(message) { console.log(clc.blueBright(message)); },
   warn: function(message) { console.log(clc.yellow(message)); },
   error: function(message) { console.log(clc.red.bold(message)); }
 };
 
-if(typeof opt.args !== 'undefined' && opt.args.length) {
-  if(fs.existsSync('./tasks/' + opt.args[0] + '.js')) {
-    require('./tasks/init.js')(cli);
+
+// Prints CLI general help and lists available commands
+var printHelp = function() {
+  console.log('Usage: form5 COMMAND [options]');
+  console.log('For command specific help type form5 command -h or --help \n');
+  console.log('Available commands:');
+
+  fs.readdir('./tasks/', function(undefined, files) {
+    for (var i = 0; i < files.length; i++) {
+      console.log(files[i].split('.')[0]);
+    };
+  });
+};
+
+
+// Parse arguments and run the appropriate command
+if(args.length) {
+  if(fs.existsSync('./tasks/' + args[0] + '.js')) {
+    require('./tasks/' + args[0] + '.js')(cli);
   } else {
-    console.log('Unkown option: ' + opt.args[0]);
-    opt.printHelp();
+    console.log('Unkown option: ' + args[0]);
+    printHelp();
   }
 } else {
-  opt.printHelp();
+  printHelp();
 }
