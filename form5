@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+var stdio = require('stdio'),
+    fs = require('fs');
+
+var opt = stdio.getopt({
+  'foo': { key: 'f', description: 'The foo initializer'}
+});
+
+
+if(typeof opt.args !== 'undefined' && opt.args.length) {
+  if(fs.existsSync('./tasks/' + opt.args[0] + '.js')) {
+    require('./tasks/init.js')(opt);
+  } else {
+    console.log('Unkown option: ' + opt.args[0]);
+    opt.printHelp();
+  }
+} else {
+  opt.printHelp();
+}
