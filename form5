@@ -1,15 +1,22 @@
 #!/usr/bin/env node
 var stdio = require('stdio'),
-    fs = require('fs');
+    fs = require('fs'),
+    clc = require('cli-color');
 
 var opt = stdio.getopt({
   'foo': { key: 'f', description: 'The foo initializer'}
 });
 
+var cli = {
+  opt: opt,
+  notice: function(message) { console.log(clc.blue(message)); },
+  warn: function(message) { console.log(clc.yellow(message)); },
+  error: function(message) { console.log(clc.red.bold(message)); }
+};
 
 if(typeof opt.args !== 'undefined' && opt.args.length) {
   if(fs.existsSync('./tasks/' + opt.args[0] + '.js')) {
-    require('./tasks/init.js')(opt);
+    require('./tasks/init.js')(cli);
   } else {
     console.log('Unkown option: ' + opt.args[0]);
     opt.printHelp();

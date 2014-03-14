@@ -4,7 +4,8 @@
   "description": "Our workflow command line interface",
   "main": "form5",
   "dependencies": {
-    "stdio": "~0.1.5"
+    "stdio": "~0.1.5",
+    "cli-color": "~0.2.3"
   },
   "devDependencies": {},
   "scripts": {
