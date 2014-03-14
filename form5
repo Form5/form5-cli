@@ -9,6 +9,7 @@ var args = process.argv.slice(2);
 
 
 var cli = {
+  args: args,
   getopt: stdio.getopt,
   prefix: '[' + clc.cyan('form5') + ']',
   log: function(message){ console.log( cli.prefix, message ); },
