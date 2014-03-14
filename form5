@@ -7,11 +7,14 @@ var stdio = require('stdio'),
 
 var args = process.argv.slice(2);
 
+
 var cli = {
   getopt: stdio.getopt,
-  notice: function(message) { console.log(clc.blueBright(message)); },
-  warn: function(message) { console.log(clc.yellow(message)); },
-  error: function(message) { console.log(clc.red.bold(message)); }
+  prefix: '[' + clc.cyan('form5') + ']',
+  log: function(message){ console.log( cli.prefix, message ); },
+  notice: function(message){ console.log( cli.prefix, clc.blue(message) ); },
+  warn: function(message){ console.log( cli.prefix, clc.yellow(message) ); },
+  error: function(message){ console.log( cli.prefix, clc.red.bold(message) ); }
 };
 
 
