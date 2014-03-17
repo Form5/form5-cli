@@ -1,7 +1,14 @@
 module.exports = function(cli) {
   var Pushover = require('pushover-notifications'),
+      config = require('/usr/local/etc/form5.json'),
       clc = require('cli-color'),
       message = cli.args[1] !== '' ? cli.args[1] : false;
+
+  if (config.shoutAppToken === '' || config.shoutUserToken === '') {
+    cli.warn('Configuration is missing!');
+    cli.notice('Go to pushover.com and get your own app and user tokens, then run form5 config to set them.');
+    return;
+  }
 
   var priorityDesc = 'Set priority';
   priorityDesc += '\n\t\t\t\t-1 = Low\tno notification';
@@ -66,9 +73,8 @@ module.exports = function(cli) {
   }
 
   var push = new Pushover( {
-    // TODO: create config interface (see #1)
-    token: '',
-    user: '',
+    token: config.shoutAppToken,
+    user: config.shoutUserToken,
     onerror: function(error) {
       cli.warn('Failed to send message!');
       cli.error('Reason: ' + error);
