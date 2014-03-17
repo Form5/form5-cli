@@ -1,11 +1,22 @@
 {
   "name": "form5-cli",
   "description": "Our workflow command line interface",
-  "version": "0.0.5",
-  "author": "Form5 <hello@form5.is>",
+  "version": "0.0.6",
+  "author": {
+    "name": "Form5",
+    "email": "hello@form5.is",
+    "url": "http://www.form5.is"
+  },
+  "bin": {
+    "form5": "form5"
+  },
   "bugs": {
     "url": "https://github.com/Form5/form5-cli/issues"
   },
+  "contributors": [
+    "Olafur Nielsen <olafur@form5.is>",
+    "Benedikt D Valdez <benedikt@form5.is>"
+  ],
   "dependencies": {
     "async": "~0.2.10",
     "cli-color": "~0.2.3",
@@ -14,10 +25,15 @@
     "stdio": "~0.1.5",
     "underscore": "~1.6.0"
   },
-  "devDependencies": {},
   "homepage": "https://github.com/Form5/form5-cli",
+  "keywords": [
+    "form5",
+    "form5-cli"
+  ],
   "license": "MIT",
   "main": "form5",
+  "preferGlobal": true,
+  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git://github.com/Form5/form5-cli.git"
