@@ -15,8 +15,9 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
-// Ask boolean question, takes callback and retu
+// Ask boolean question, takes callback and returns
 var askBoolean = function(question, cb) {
+  question = '[form5][init] ' + question +  ' (Y/n)\t';
   rl.question(question, function(answer) {
     if(!answer.length || answer.toLowerCase() === 'y' ) {
       cb(true);
@@ -32,13 +33,13 @@ module.exports = function(cli) {
   async.series(
     [
       function(cb) {
-        askBoolean('Install gulp-blender? (Y/n):', function(gulpBlender) {
+        askBoolean('Install gulp-blender?', function(gulpBlender) {
           cb(null, { gulpBlender: gulpBlender });
         });
       },
 
       function(cb) {
-        askBoolean('Install CreSS css framework? (Y/n): ', function(cress) {
+        askBoolean('Install CreSS css framework? ', function(cress) {
           cb(null, { cress: cress });
         });
       }
@@ -116,7 +117,7 @@ module.exports = function(cli) {
         ],
         function(err, results) {
 
-          askBoolean('Run development server and open Sublime Text? (Y/n):', function(answer) {
+          askBoolean('Run development server and open Sublime Text?', function(answer) {
             if(answer) {
               spawn('subl', ['.'], { cwd: options.dir });
               var server = spawn('gulp', ['server'], { cwd: options.dir });

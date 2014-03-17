@@ -1,7 +1,7 @@
 {
   "name": "form5-cli",
   "description": "Our workflow command line interface",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Form5 <hello@form5.is>",
   "bugs": {
     "url": "https://github.com/Form5/form5-cli/issues"
