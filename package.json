@@ -1,7 +1,7 @@
 {
   "name": "form5-cli",
   "description": "Our workflow command line interface",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Form5 <hello@form5.is>",
   "bugs": {
     "url": "https://github.com/Form5/form5-cli/issues"
@@ -9,6 +9,7 @@
   "dependencies": {
     "async": "~0.2.10",
     "cli-color": "~0.2.3",
+    "pushover-notifications": "^0.1.8",
     "readline-sync": "~0.2.2",
     "stdio": "~0.1.5",
     "underscore": "~1.6.0"
