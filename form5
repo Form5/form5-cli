@@ -26,7 +26,7 @@ var printHelp = function() {
   console.log('For command specific help type form5 command -h or --help \n');
   console.log('Available commands:');
 
-  fs.readdir('./tasks/', function(undefined, files) {
+  fs.readdir(__dirname + '/tasks/', function(err, files) {
     for (var i = 0; i < files.length; i++) {
       console.log(files[i].split('.')[0]);
     };
@@ -36,8 +36,8 @@ var printHelp = function() {
 
 // Parse arguments and run the appropriate command
 if(args.length) {
-  if(fs.existsSync('./tasks/' + args[0] + '.js')) {
-    require('./tasks/' + args[0] + '.js')(cli);
+  if(fs.existsSync(__dirname + '/tasks/' + args[0] + '.js')) {
+    require(__dirname + '/tasks/' + args[0] + '.js')(cli);
   } else {
     console.log('Unkown option: ' + args[0]);
     printHelp();
