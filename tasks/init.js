@@ -3,7 +3,6 @@
 var readline = require('readline'),
     async = require('async'),
     _ = require('underscore'),
-    git = require('nodegit'),
     fs = require('fs'),
     path = require('path'),
     exec = require('child_process').exec,

@@ -1,7 +1,7 @@
 {
   "name": "form5-cli",
   "description": "Our workflow command line interface",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": {
     "name": "Form5",
     "email": "hello@form5.is",
